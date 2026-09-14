@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+.text{
+     font-family: "Playfair Display";
+}
+body{
+    background-color: black;
+}
+.whytext{
+    font-family: "Poppins, sans-serif, Arial";
+};
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

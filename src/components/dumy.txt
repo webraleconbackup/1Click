@@ -1,0 +1,318 @@
+import React, { useRef } from "react";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
+const services = [
+  {
+    img: "/service/service1.jpg",
+    title: "Birthday Events",
+    subtitle: "& Decoration",
+    link: "/birthday",
+  },
+  {
+    img: "/anniversary/anniversary3.jpeg",
+    title: "Anniversary Events",
+    subtitle: "& Decoration",
+    link: "/anniversary",
+  },
+  {
+    img: "/baby/baby.jpg",
+    title: "Baby Shower Events",
+    subtitle: "& Decoration",
+    link: "/baby-decoration",
+  },
+  {
+    img: "/service/service4.jpg",
+    title: "Haldi & Mehandi Events",
+    subtitle: "& Decoration",
+    link: "/haldi-decoration",
+  },
+  {
+    img: "/justmarried/married1.jpg",
+    title: "Just Married Events",
+    subtitle: "& Decoration",
+    link: "/just-married-decoration",
+  },
+  {
+    img: "/festival/ganesh1.jpg",
+    title: "Ganesh Chaturthi Events",
+    subtitle: "& Decoration",
+    link: "/festival-decoration",
+  },
+  {
+    img: "/festival/christmas3.jpg",
+    title: "Christmasday Events",
+    subtitle: "& Decoration",
+    link: "/festival-decoration",
+  },
+  {
+    img: "/festival/new-year3.jpg",
+    title: "New Year Events",
+    subtitle: "& Decoration",
+    link: "/festival-decoration",
+  },
+];
+
+export default function OurWorkSection() {
+  const sliderRef = useRef(null);
+
+  const scrollLeft = () => {
+    sliderRef.current.scrollBy({ left: -350, behavior: "smooth" });
+  };
+  const scrollRight = () => {
+    sliderRef.current.scrollBy({ left: 350, behavior: "smooth" });
+  };
+
+  return (
+    <section className="w-full bg-black py-16 text-white">
+      <h2 className="text-center text-3xl lg:text-5xl font-Poppins italic mb-16 text-[#D4A017] font-bold">
+        Social & Family Celebrations
+      </h2>
+
+      <div className="relative max-w-8xl mx-auto px-4">
+
+        {/* TOP BUTTONS AT CORNERS */}
+        <button
+          onClick={scrollLeft}
+          className="absolute -top-10 left-0 bg-[#D4A017] text-black p-3 rounded-full shadow-xl hover:bg-yellow-500 z-30"
+        >
+          <FaChevronLeft size={20} />
+        </button>
+
+        <button
+          onClick={scrollRight}
+          className="absolute -top-10 right-0 bg-[#D4A017] text-black p-3 rounded-full shadow-xl hover:bg-yellow-500 z-30"
+        >
+          <FaChevronRight size={20} />
+        </button>
+
+        {/* SCROLL SLIDER */}
+        <div
+          ref={sliderRef}
+          className="flex gap-6 overflow-x-auto overflow-y-hidden scroll-smooth no-scrollbar py-4"
+        >
+          {services.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="flex-shrink-0 w-80 bg-white rounded-2xl shadow-md overflow-hidden text-center"
+            >
+              <div className="relative">
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-60 md:h-72 object-cover transition-transform duration-700 hover:scale-110"
+                />
+              </div>
+
+              <h3 className="text-xl md:text-2xl py-3 font-serif text-black leading-tight">
+                {item.title} <br /> {item.subtitle}
+              </h3>
+
+              <Link to={item.link}>
+                <button className="my-3 bg-[#D4A017] text-black rounded-tr-3xl rounded-bl-3xl font-semibold px-6 py-2 shadow hover:bg-yellow-600 transition-all">
+                  Get More
+                </button>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+
+why choose us   *******************************************
+
+import React from 'react';
+import { motion } from 'framer-motion';
+import { TiTick } from 'react-icons/ti';
+
+const WhyChooseUs = () => {
+  return (
+    <section className='bg-black text-white md:pb-6 pt-10 lg:pt-16'>
+      <div className='max-w-8xl lg:px-20 mx-auto grid md:grid-cols-2 gap-y-10 lg:gap-20 px-4'>
+        {/* TEXT FIRST ON MOBILE */}
+        <motion.div
+          initial={{ scale: 1.1 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 1, ease: 'easeOut', delay: 0.15 }}
+          viewport={{ once: true, amount: 0.3 }}
+          className='space-y-6 leading-relaxed order-1 md:order-2'
+        >
+          <h2 className='whytext text-4xl text-[#D4A017] md:text-6xl font-Poppins font-extrabold'>
+            Why to choose us
+          </h2>
+
+          <div className='text-[#f5e7c3] font-semibold'>
+            <p className='flex items-center gap-2'>
+              <TiTick />
+              Same Day Decoration
+            </p>
+            <p className='flex items-center gap-2'>
+              <TiTick />
+              8+ Years Experience
+            </p>
+            <p className='flex items-center gap-2'>
+              <TiTick />
+              Custom Themes Available
+            </p>
+            <p className='flex items-center gap-2'>
+              <TiTick />
+              2200+ Happy Clients
+            </p>
+            <p className='flex items-center gap-2'>
+              <TiTick />
+              Guaranteed Quality
+            </p>
+            <p className='flex items-center gap-2'>
+              <TiTick />
+              Professional Decor Team
+            </p>
+          </div>
+
+          {/* PARAGRAPH 1 */}
+          <p className='text-[#f5e7c3] text-lg lg:text-xl leading-[1.8]'>
+            <span className='text-[#D4A017] font-semibold'>
+              At Meet & Greet Affairs
+            </span>
+            , we believe that every celebration — big or small — deserves to be
+            extraordinary. From intimate family gatherings to grand corporate
+            events, from dreamy pre-weddings to vibrant festivals, we craft
+            memorable experiences with elegance and finesse.
+          </p>
+
+          {/* <p className='text-[#f5e7c3] text-lg lg:text-xl leading-[1.8]'>
+            <TiTick />
+            We create memorable experiences for family gatherings, festivals, pre-weddings, and corporate events
+          </p>
+
+          
+          <p className='text-[#f5e7c3] text-lg lg:text-xl leading-[1.8]'>
+            Our team handles everything, including décor, planning, coordination, catering, entertainment, and venue support, so you can enjoy your day without any stress.
+          </p> */}
+
+          {/* PARAGRAPH 4 */}
+          <p className='text-[#f5e7c3] text-lg lg:text-xl leading-[1.8]'>
+            <span className='text-[#D4A017] font-semibold'>
+              At Meet & Greet Affairs
+            </span>
+            , handle every detail so you can be fully present with your loved
+            ones
+          </p>
+
+          {/* <p className='font-semibold text-lg text-[#D4A017]'>
+            Your vision. Our craft. Every detail, perfected.
+          </p> */}
+        </motion.div>
+
+        {/* IMAGE SECOND ON MOBILE */}
+        <motion.div
+          initial={{ scale: 1.15 }}
+          whileInView={{ scale: 1 }}
+          transition={{ duration: 1, ease: 'easeOut' }}
+          viewport={{ once: true, amount: 0.3 }}
+          className='relative flex justify-center items-center order-2 md:order-1'
+        >
+          <div className='absolute -top-6 -left-6 w-32 h-32 bg-[#D4A017]/20 rounded-3xl blur-xl'></div>
+
+          <img
+            src='/gallery/why.JPG'
+            alt='Event Decoration'
+            className='rounded-2xl w-full md:w-[80%] md:h-[500px] object-cover hover:rotate-360 shadow-xl hover:rounded-full transition-all duration-700 hover:scale-105'
+          />
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+export default WhyChooseUs;
+
+
+service page***************************************
+
+
+
+import React from "react";
+import { FaPhoneAlt, FaWhatsapp } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
+export default function ServiceCard({ title, desc, services, link }) {
+  return (
+    <section className="relative bg-black py-6 mb-10 overflow-hidden border-white border-1 lg:mx-20">
+      
+      {/* 🎉 Birthday + Read More Row */}
+      <div className="flex justify-between items-center px-6 mb-6">
+        <h2 className="text-2xl md:text-3xl font-bold text-[#D4A017]">
+            {title}
+        </h2>
+
+        <button className="bg-[#D4A017] text-black hover:text-white font-semibold px-6 py-2 rounded-sm hover:bg-yellow-600 transition">
+          <Link to={link}>Read More</Link>
+        </button>
+      </div>
+
+      {/* 🎁 Card Grid */}
+      <div className="relative grid gap-6 px-4 lg:grid-cols-4 md:grid-cols-2">
+        {services.slice(0, 4).map((service) => (
+          <div
+            key={service.id}
+            className="relative rounded-3xl overflow-hidden bg-[#F4E8C1] backdrop-blur-md shadow-lg border border-pink-100 hover:border-yellow-300 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl group"
+          >
+            {/* 🖼️ Image */}
+            <div className="overflow-hidden rounded-t-3xl relative">
+              <img
+                src={service.image}
+                alt={service.title}
+                className="w-full h-80 object-cover transform group-hover:scale-110 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent"></div>
+            </div>
+
+            {/* 📋 Content */}
+            <div className="p-6 flex flex-col justify-between">
+              <div>
+                <h3 className="text-xl font-bold text-center text-black mb-2 group-hover:text-[#D4A017] transition">
+                  {service.title}
+                </h3>
+              </div>
+
+              {/* 🔘 Buttons */}
+              <div className="mt-5">
+                <div className="flex justify-between gap-3">
+                  <a
+                    href="tel:+919217017881"
+                    className="bg-black p-5 rounded-full hover:scale-110 transition"
+                  >
+                    <FaPhoneAlt className="text-white text-lg" />
+                  </a>
+                  <a
+                    href={`https://wa.me/919217017881?text=${encodeURIComponent(
+                      "Hello! I'm interested in your decoration services. Please share more details."
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-[#D4A017] py-3 text-xl px-4 text-black font-semibold rounded-full hover:scale-110 transition"
+                  >
+                    Get in touch
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* ✨ Glow Border Effect */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-700 rounded-3xl pointer-events-none bg-gradient-to-br from-[#ff9a8b]/20 to-[#ffd36f]/20 blur-xl"></div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
+
